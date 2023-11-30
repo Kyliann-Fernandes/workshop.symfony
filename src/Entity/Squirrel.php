@@ -16,9 +16,7 @@ class Squirrel
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $name_2 = null;
-
+   
     public function getId(): ?int
     {
         return $this->id;
@@ -36,16 +34,5 @@ class Squirrel
         return $this;
     }
 
-    public function getName2(): ?string
-    {
-        return $this->name_2;
-    }
-
-    public function setName2(string $name_2): static
-    {
-        $this->name_2 = $name_2;
-
-        return $this;
-    }
 }
   
