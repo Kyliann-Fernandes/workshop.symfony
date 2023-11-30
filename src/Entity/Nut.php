@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\SquirrelRepository;
+use App\Repository\NutRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: SquirrelRepository::class)]
-class Squirrel
+#[ORM\Entity(repositoryClass: NutRepository::class)]
+class Nut
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,8 +16,8 @@ class Squirrel
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $name_2 = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $stock = null;
 
     public function getId(): ?int
     {
@@ -36,14 +36,14 @@ class Squirrel
         return $this;
     }
 
-    public function getName2(): ?string
+    public function getStock(): ?int
     {
-        return $this->name_2;
+        return $this->stock;
     }
 
-    public function setName2(string $name_2): static
+    public function setStock(?int $stock): static
     {
-        $this->name_2 = $name_2;
+        $this->stock = $stock;
 
         return $this;
     }
